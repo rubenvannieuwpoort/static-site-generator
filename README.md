@@ -35,3 +35,4 @@ Make sure you have node and npm installed, then run:
 1. Improve the Makefile
 2. There is probably CSS missing for some elements that I haven't used yet
 3. Improve the code to extract the title from a markdown file (it currently only works when the title starts with a pound). This is currently duplicated in get_title.js and index.js.
+4. Throw out most of the styling in index_files/style.css.
