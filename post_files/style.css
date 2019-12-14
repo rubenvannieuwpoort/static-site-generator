@@ -68,7 +68,13 @@ h1 {
 
 h2 {
 	font: 600 30px/24px "Crimson", Georgia, serif;
-    margin: 69px 0 0 0;
+    margin: 69px 0 40px 0;
+    padding-bottom: 3px;
+}
+
+h3 {
+    font: 600 20px/10px "Crimson", Georgia, serif;
+    margin: 40px 0 0 0;
     padding-bottom: 3px;
 }
 
