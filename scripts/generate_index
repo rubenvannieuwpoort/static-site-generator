@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+
+# Start of index HTML
+
+echo "<!DOCTYPE html>"
+echo "<html lang=\"en\">"
+echo "<head>"
+echo "<meta charset=\"utf-8\">"
+echo "<title>Ben's blog</title>"
+echo "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600\">"
+echo "<link rel=\"stylesheet\" href=\"./style.css\">"
+echo "</head>"
+echo "<body>"
+echo "<div class=\"container\">"
+echo "<header class=\"masthead\">"
+echo "<h1 class=\"masthead-title\">"
+echo "<a href=\"\\\">Ben<span>&#39;s blog</span></a>"
+echo "</h1>"
+echo "<nav class=\"masthead-nav\">"
+echo "</nav>"
+echo "</header>"
+echo "<div class=\"content list\">"
+
+
+# Generated HTML to link to blog posts
+
+for FILE in $(ls posts/*.md)
+do
+	FILENAME=${FILE::-3}
+	DATE=${FILE:6:10}
+	TITLE=$(scripts/get_title.js $FILE)
+	NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
+	echo "<div class=\"list-item\">"
+	echo "<h2 class=\"list-post-title\">"
+	echo "<a href=\"${FILENAME}.html\">$TITLE</a>"
+	echo "</h2>"
+	echo "<div class=\"list-post-date\">"
+	echo "<time>$NICEDATE</time>"
+	echo "</div>"
+	echo "</div>"
+done
+
+
+# Fixed end of index HTML
+
+echo "</div>"
+echo "</div>"
+echo "</body>"
+echo "</html>"

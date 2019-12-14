@@ -1,0 +1,23 @@
+{
+  "name": "static-site-generator",
+  "version": "1.0.0",
+  "description": "A static site generator which supports markdown with LaTeX.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ruben van Nieuwpoort",
+  "license": "MIT",
+  "dependencies": {
+    "katex": "^0.11.1",
+    "rehype-document": "^3.0.1",
+    "rehype-format": "^3.0.0",
+    "rehype-stringify": "^6.0.0",
+    "remark-math": "^2.0.0",
+    "remark-parse": "^7.0.2",
+    "remark-rehype": "^5.0.0",
+    "unified": "^8.4.0",
+    "vfile-reporter": "^6.0.0"
+  }
+}

@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Crimson';
+  src: url("font/crimson-roman.woff") format("woff"); }
+@font-face {
+  font-family: 'Crimson';
+  src: url("font/crimson-italic.woff") format("woff");
+  font-style: italic; }
+@font-face {
+  font-family: 'Crimson';
+  src: url("font/crimson-semibold.woff") format("woff");
+  font-weight: 600; }
+@font-face {
+  font-family: 'Crimson';
+  src: url("font/crimson-semibolditalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 600; }
+@font-face {
+  font-family: 'Crimson';
+  src: url("font/crimson-bold.woff") format("woff");
+  font-weight: bold; }
+@font-face {
+  font-family: 'Crimson';
+  src: url("font/crimson-bolditalic.woff") format("woff");
+  font-style: italic;
+  font-weight: bold; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, a, abbr, acronym, address, big, cite, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, u, center, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+pre, code { font-size: 93%; }
+
+body {
+	color: 202020;
+	margin: 59px 10px;
+	font: normal 16px/24px "Crimson", Georgia, serif;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a {
+	color: #0c93e4;
+    text-decoration: none;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h1 {
+	font: 40px/40px "Crimson", Georgia, serif;
+	text-align: center;
+    padding: 20px 0px;
+}
+
+h2 {
+	font: 600 30px/24px "Crimson", Georgia, serif;
+    margin: 69px 0 0 0;
+    padding-bottom: 3px;
+}
+
+article {
+	margin: auto;
+	background-color: #ffffff;
+	position: relative;
+	width: 715px;
+	padding: 50px;
+}
+
+@media only screen {
+	body { background-color: #525659; }
+	article { box-shadow: 1px 1px 3px 2px #333333;
+}
