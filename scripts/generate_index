@@ -26,7 +26,7 @@ echo "<div class=\"content list\">"
 
 # Generated HTML to link to blog posts
 
-for FILE in $(ls posts/*.md)
+for FILE in $(ls -r posts/*.md)
 do
 	FILENAME=${FILE::-3}
 	DATE=${FILE:6:10}
