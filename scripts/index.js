@@ -48,13 +48,17 @@ function script_code(href) {
 }
 
 // Generate HTML given a title, body, stylesheet paths, and script paths.
-function html_document(title, body, stylesheets, scripts) {
-	if (typeof stylesheets === 'undefined') stylesheets = [];
-	if (typeof scripts === 'undefined') scripts = [];
+function html_document(title, body, favicon, stylesheets, scripts) {
+	if (stylesheets === undefined) stylesheets = [];
+	if (scripts === undefined) scripts = [];
+	if (favicon !== undefined) {
+		favicon_type = { 'ico': 'image/x-icon', 'gif': 'image/gif', 'png': 'image/png' }[favicon.substring(favicon.length - 3)];
+	}
 	
 	return '<html><head><title>' + title + '</title>'
 		+ stylesheets.map(stylesheet_code).join(' ')
 		+ scripts.map(script_code).join(' ')
+		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">' : '')
 		+ '</head><body>'
 		+ body
 		+ '</body></html>';
@@ -114,7 +118,7 @@ function main() {
 	html_contents =
 		'<article>' + markdown_to_html(markdown_contents) +	'</article>';
 	
-	document = html_document(title, html_contents,
+	document = html_document(title, html_contents,  '../favicon.png',
 		[ 'style.css', 'katex.min.css' ]);
 		
 	console.log(document);
