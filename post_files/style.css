@@ -34,8 +34,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 pre, code { font-size: 93%; }
 
 body {
-	color: 202020;
-	margin: 59px 10px;
 	font: normal 16px/24px "Crimson", Georgia, serif;
 }
 
@@ -61,32 +59,37 @@ strong {
 }
 
 h1 {
-	font: 40px/40px "Crimson", Georgia, serif;
+	font: 40px "Crimson", Georgia, serif;
 	text-align: center;
     padding: 20px 0px;
 }
 
 h2 {
-	font: 600 30px/24px "Crimson", Georgia, serif;
-    margin: 69px 0 40px 0;
+	font: 600 30px "Crimson", Georgia, serif;
+    margin: 69px 0 25px 0;
     padding-bottom: 3px;
 }
 
 h3 {
-    font: 600 20px/10px "Crimson", Georgia, serif;
+    font: 600 20px "Crimson", Georgia, serif;
     margin: 40px 0 0 0;
     padding-bottom: 3px;
 }
 
-article {
-	margin: auto;
-	background-color: #ffffff;
-	position: relative;
-	width: 715px;
-	padding: 50px;
+@media only screen {
+	
+	body { background-color: #525659; margin: 59px 10px; }
+	
+	article {
+		margin: auto;
+		background-color: #ffffff;
+		position: relative;
+		width: 715px;
+		padding: 50px;
+		box-shadow: 1px 1px 3px 2px #333333;
+	}
 }
 
-@media only screen {
-	body { background-color: #525659; }
-	article { box-shadow: 1px 1px 3px 2px #333333;
+@page {
+    margin: 25mm;
 }
