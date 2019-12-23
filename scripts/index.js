@@ -79,9 +79,9 @@ function markdown_to_html(markdown_contents) {
 	
 	// Use KaTeX to render the math to HTML.
 	display_math = display_math.map(
-		x => katex.renderToString(x, { displayMode: true }));
+		x => katex.renderToString(x, { displayMode: true, output: 'html' }));
 	inline_math = inline_math.map(
-		x => katex.renderToString(x, { displayMode: false }));
+		x => katex.renderToString(x, { displayMode: false, output: 'html' }));
 	
 	// Summon the all-mighty remark to do our work.
 	contents = unified().use(markdown).use(remark2rehype)
