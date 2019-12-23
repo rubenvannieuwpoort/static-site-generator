@@ -113,7 +113,8 @@ function main() {
 		markdown_contents = markdown_contents.substr(1);
 	}
 	
-	title = /^\# (.*)/.exec(markdown_contents)[1];
+	title = /^(\# (.*)|(.+\n=))/gm.exec(markdown_contents)[1].split('\n')[0];
+	if (title.startsWith('# ')) title = title.substring(2);
 	
 	html_contents =
 		'<article>' + markdown_to_html(markdown_contents) +	'</article>';

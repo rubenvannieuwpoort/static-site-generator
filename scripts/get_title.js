@@ -25,5 +25,7 @@ if (markdown_contents.charCodeAt(0) === 0xFEFF) {
 }
 
 // Get first level 1 header with pound and leading space removed
-title = /^\# (.*)/.exec(markdown_contents)[1];
+title = /^(\# (.*)|(.+\n=))/gm.exec(markdown_contents)[1].split('\n')[0];
+if (title.startsWith('# ')) title = title.substring(2);
+
 console.log(title);
