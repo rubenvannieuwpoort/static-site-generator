@@ -77,15 +77,21 @@ h3 {
 }
 
 @media only screen {
-	
-	body { background-color: #525659; margin: 59px 10px; }
+	body { margin: 59px 10px; }
 	
 	article {
 		margin: auto;
-		background-color: #ffffff;
 		position: relative;
 		width: 715px;
 		padding: 50px;
+	}
+}
+
+@media only screen and (min-width: 850px) {
+	body { background-color: #525659; }
+	
+	article {
+		background-color: #ffffff;
 		box-shadow: 1px 1px 3px 2px #333333;
 	}
 }
