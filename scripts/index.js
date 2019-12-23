@@ -55,13 +55,16 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 		favicon_type = { 'ico': 'image/x-icon', 'gif': 'image/gif', 'png': 'image/png' }[favicon.substring(favicon.length - 3)];
 	}
 	
-	return '<html><head><title>' + title + '</title>'
-		+ stylesheets.map(stylesheet_code).join(' ')
-		+ scripts.map(script_code).join(' ')
-		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">' : '')
-		+ '</head><body>'
-		+ body
-		+ '</body></html>';
+	return '<html>\n<head>\n'
+		+ '<meta charset="utf-8">\n'
+		+ '<title>' + title + '</title>\n'
+		+ '<meta name="viewport" content="width=device-width">\n'
+		+ stylesheets.map(stylesheet_code).join(' ') + '\n'
+		+ scripts.map(script_code).join(' ') + '\n'
+		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">' : '') + '\n'
+		+ '</head>\n<body>' + '\n'
+		+ body + '\n'
+		+ '</body>\n</html>';
 }
 
 // Generate HTML from markdown.
