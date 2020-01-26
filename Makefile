@@ -6,12 +6,12 @@ default: site/index.html $(OUT)
 
 site/posts/%.html: posts/%.md
 	mkdir -p site/posts
-	cp -r post_files/* site/posts/
 	scripts/index.js $< > $@
 
 site/index.html: posts/*
 	mkdir -p site/posts
-	for folder in $$(ls -d posts/*/) ; do \
+	cp -r post_files/* site/posts/
+	for folder in $$(find posts -mindepth 1 -maxdepth 1 -type d) ; do \
 		cp -r "$$folder" "site/$$folder" ; \
 	done
 	cp -r index_files/* site/
