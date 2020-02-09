@@ -98,12 +98,12 @@ function markdown_to_html(markdown_contents) {
 }
 
 function main() {	
-	if (process.argv.length < 3) {
-		console.log('Usage: index.js input.md > output.html');
+	if (process.argv.length < 4) {
+		console.log('Usage: index.js title input.md > output.html');
 		process.exit(1);
 	}
 	
-	file_name = process.argv[2];
+	file_name = process.argv[3];
 	if (!fs.existsSync(file_name)) {
 		console.log(file_name + ' does not exist.');
 		process.exit(2);
@@ -116,14 +116,11 @@ function main() {
 		markdown_contents = markdown_contents.substr(1);
 	}
 	
-	title = /^(\# (.*)|(.+\n=))/gm.exec(markdown_contents)[1].split('\n')[0];
-	if (title.startsWith('# ')) title = title.substring(2);
-	
-	html_contents =
-		'<article>' + markdown_to_html(markdown_contents) +	'</article>';
+	title = process.argv[2];
+	html_contents = '<article>' + markdown_to_html(markdown_contents) + '</article>';
 	
 	document = html_document(title, html_contents,  '../favicon.png',
 		[ 'style.css', 'katex.min.css' ]);
-		
+	
 	console.log(document);
 }

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Start of index HTML
+
+echo "<html>"
+echo "<head>"
+echo "<title>Example blog</title>"
+echo "<link rel=\"stylesheet\" href=\"./style.css\">"
+echo '</head>'
+echo "<body>"
+echo "<table>"
+
+# Generated HTML to link to blog posts
+
+while read line; do
+	FILENAME=$(echo "$line" | cut -f2)
+	TITLE=$(echo "$line" | cut -f1)
+	DATE=$(echo "$line" | cut -f3)
+	DESCRIPTION=$(echo "$line" | cut -f4)
+	NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
+	
+	echo "<tr>"
+	echo "<td><a href=\"posts/${FILENAME}.html\">$TITLE</a></td>"
+	echo "<td>$NICEDATE</td>"
+	echo "<td>$DESCRIPTION</td>"
+	echo "</tr>"
+done < post_list
+
+
+# Fixed end of index HTML
+
+echo "</table>"
+echo "</body>"
+echo "</html>"
