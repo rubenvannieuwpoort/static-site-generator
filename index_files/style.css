@@ -1,1 +1,151 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 1.6;
+}
+
+@media (min-width: 38em) {
+	html { font-size:18px; }
+}
+
+body {
+	color: #515151;
+	background-color: #fff;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+a {
+	color: #268bd2;
+	text-decoration: none;
+}
+
+a:hover, a:focus { text-decoration: underline; }
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 0.5 rem;
+	font-weight: 600;
+	line-height: 1.1;
+	color: #333;
+	letter-spacing: -0.025rem;
+}
+
+h1 { font-size: 2rem; }
+
+h2{ font-size: 1.6rem; }
+
+h3{ font-size: 1.3rem; }
+
+h4, h5, h6 { font-size:1rem; }
+
+p { margin:0 0 1rem; }
+
+.container{
+	max-width: 46rem;
+	padding: 2rem 1.5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (min-width: 38rem){
+	.container{ padding: 5rem 1rem; }
+}
+
+.masthead-title { font-weight: 300; }
+
+.masthead-title a { color: #333; }
+
+.masthead-title a:hover, .masthead-title a:focus { text-decoration: none; }
+
+.masthead-title span { color: #ddd; }
+
+.masthead-title--small a { color:#333; }
+
+.masthead-title--small a:hover, .masthead-title--small a:focus { text-decoration: none; }
+
+.masthead .masthead-nav { margin-bottom: 2rem; }
+
+.masthead .masthead-nav a {
+	color: #aaa;
+	font-weight: 300;
+	text-transform: lowercase;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	transition:all .2s ease;
+}
+
+.masthead .masthead-nav a:hover,.masthead .masthead-nav a:focus {
+	color: #333;
+	text-decoration: none;
+}
+
+.page-title { margin-bottom: 2rem; }
+
+.post-title { margin-bottom: 0.25rem; }
+
+.post-date{
+	margin-bottom: 2rem;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
+
+.list-post-title { margin-bottom: 0.25rem; }
+
+.list-post-title a { color:#333; }
+
+.list-post-title a:hover,.list-post-title a:focus { text-decoration:none; }
+
+.list-post-date {
+	margin-bottom: 1rem;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
+
+.post-date {
+  float: right;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  position: relative;
+}
+
+.post-title {
+  font-size: 1.3rem;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: black;
+}
+
+.post-subtitle {
+  font-size: 16px;
+  width: 80%;
+}
+
+.year {
+  font-size: 18px;
+  position: relative;
+  right: 100px;
+  color: rgba(0, 0, 0, 0.5);
+  width: 100px;
+  margin-bottom: -24px;
+}
 
