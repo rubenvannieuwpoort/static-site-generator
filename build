@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 if [ ! -z "$1" ] && [[ "$1" == "clean" ]]; then
 	rm -rf site
 	exit 0
