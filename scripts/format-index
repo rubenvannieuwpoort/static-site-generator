@@ -2,27 +2,27 @@
 
 # Start of index HTML
 
-echo "<!DOCTYPE html>"
-echo "<html lang=\"en\">"
-echo "<head>"
+echo '<!DOCTYPE html>'
+echo '<html lang="en">'
+echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo "<title>Ruben's blog</title>"
-echo "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600\">"
-echo "<link rel=\"stylesheet\" href=\"./style.css\">"
+echo "<title>Ruben’s blog</title>"
+echo '<link rel="shortcut icon" href="./favicon.png">'
+echo '<link rel="stylesheet" href="./style.css">'
 echo '</head>'
 echo '<body>'
 echo '<div id="blog" class="wrap">'
 echo '<div id="posts" class="section">'
-echo "<body>"
-echo "<div class=\"container\">"
-echo "<header class=\"masthead\">"
-echo "<h1 class=\"masthead-title\">"
-echo "<a href=\"\\\">Ruben<span>&#39;s blog</span></a>"
-echo "</h1>"
-echo "<nav class=\"masthead-nav\">"
-echo "</nav>"
-echo "</header>"
-echo "<div class=\"content list\">"
+echo '<body>'
+echo '<div class="container">'
+echo '<header class="masthead">'
+echo '<h1 class="masthead-title\">'
+echo 'Ruben’s blog</span>'
+echo '</h1>'
+echo '<nav class="masthead-nav">'
+echo '</nav>'
+echo '</header>'
+echo '<div class="content list">'
 
 
 # Generated HTML to link to blog posts
@@ -37,15 +37,15 @@ while read line; do
 	echo '<div class="post-row">'
 	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}.html\">$TITLE</a></span>"
 	echo "<span class=\"post-date\">$NICEDATE</span>"
-	echo "</div>"
+	echo '</div>'
 	echo "<p class=\"post-subtitle\">$DESCRIPTION</p>"
-	echo "<div class="clear"></div>"
+	echo '<div class="clear"></div>'
 done < post_list
 
 
 # Fixed end of index HTML
 
-echo "</div>"
-echo "</div>"
-echo "</body>"
-echo "</html>"
+echo '</div>'
+echo '</div>'
+echo '</body>'
+echo '</html>'
