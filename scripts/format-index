@@ -8,7 +8,9 @@ echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo "<title>Ruben’s blog</title>"
 echo '<link rel="shortcut icon" href="./favicon.png">'
-echo '<link rel="stylesheet" href="./style.css">'
+echo '<style>'
+cat index_style.css
+echo '</style>'
 echo '</head>'
 echo '<body>'
 echo '<div id="blog" class="wrap">'
