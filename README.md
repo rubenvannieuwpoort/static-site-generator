@@ -2,6 +2,8 @@
 
 This static site generator is designed to render markdown with LaTex to static HTML pages with as little fuzz as possible. It is explicitly designed to fit my needs, so it will not have support for many features.
 
+Note that the generator is very simple. In particular, it has no concept of a theme. If you want to adapt the look, you should directly modify the HTML and CSS (or the scripts that generate them).
+
 It utilizes [node.js](https://github.com/nodejs/node), [remark](https://github.com/remarkjs/remark), and [KaTeX](https://github.com/KaTeX/KaTeX), and a shell script to build the site.
 
 
