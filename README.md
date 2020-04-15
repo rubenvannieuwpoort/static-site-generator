@@ -30,7 +30,7 @@ This data is read by the `build` script and by `scripts/generate-index`.
 
 ## Description of the build process
 
-The `build` script contains the build process. In word, it does the following:
+The `build` script contains the build process. In words, it does the following:
 
     1. For each line in post_list:
 	    run scripts/format-blogpost <TITLE>, save the output to site/posts/<FILENAME>.html
