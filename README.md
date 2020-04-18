@@ -1,6 +1,6 @@
 # Static site generator
 
-This static site generator is designed to render markdown with LaTex to static HTML pages with as little fuzz as possible. It is explicitly designed to fit my needs, so it will not have support for many features.
+This static site generator is designed to render markdown with LaTex to static HTML pages with as little fuzz as possible. I used it to make [rubenvannieuwpoort.nl](https://rubenvannieuwpoort.nl). It is explicitly designed to fit my needs, so it will not have support for many features.
 
 Note that the generator is very simple. In particular, it has no concept of a theme. If you want to adapt the look, you should directly modify the HTML and CSS (or the scripts that generate them).
 
