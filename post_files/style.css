@@ -31,7 +31,8 @@ blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 
-pre, code { font-size: 93%; }
+pre { font-size: 93%; margin-left: 35px; }
+code { font-size: 93%; }
 
 body {
 	font: normal 16px/24px "Crimson", Georgia, serif;
@@ -47,6 +48,8 @@ p {
 
 img {
 	display: block;
+	max-width: 90%;
+	height: auto;
 	margin: 25px auto;
 }
 

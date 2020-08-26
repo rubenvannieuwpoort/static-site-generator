@@ -71,3 +71,31 @@ The Dirichlet boundary conditions can be implemented by a *Dirichlet lift*. Each
 Suppose that the mass matrix $\mathbf{M}$ is to be assembled. One could separately evaluate the integrals $\int_\Omega \psi_i \psi_j\ \text{d}\Omega$. However, the basis functions are usually defined on sections of the domain called *elements*. The domain can be partitioned into $M$ elements $e_0, e_1, ..., e_{M - 1}$ so that we have
 $$\int_\Omega \psi_i \psi_j\ \text{d}\Omega = \sum_{k = 0}^{M - 1} \int_{e_k} \psi_i \psi_j\ \text{d}\Omega$$
 The usual approach is to loop over the elements and evaluate $\int_{e_k} \psi_i \psi_j\ \text{d}\Omega$ for the basis functions $\psi_i, \psi_j$ which are nonzero on that element. Typically, the basis functions will have local support, and there will be a small number of nonzero basis functions on each element. For an element on which there are $n$ nonzero basis functions $\psi_{k_0}, \psi_{k_1}, ..., \psi_{k_{n - 1}}$, an *element matrix* $\mathbf{E} \in \mathbb{R}^{n \times n}$ with entries $\mathbf{E}_{i, j} = \int \psi_{k_i} \psi_{k_j}\ \text{d}\Omega$ is assembled. After the element matrix is assembled, each entry $\mathbf{E}_{i, j}$ is added to $\mathbf{M}_{k_i, k_j}$.
+
+Pseudocode for the assembly is as follows. Note that there are many details omitted (for example, how to evaluate the integral in the assembly of the element matrix).
+
+```
+let ψ[0], ψ[1], ..., ψ[N − 1] be the basis functions
+let e[0], e[1], ..., e[M − 1] be the elements
+let glob_mat be an N × N matrix with each element equal to zero
+for k = 0 .. M − 1
+	let n be the number of basis functions with support on e[k]
+	let s[k, 0], s[k, 1], ..., s[k, n − 1] be the indices of the basis
+		functions with support on e[k]
+	let elem_mat be an n × n matrix with each element equal to zero
+	
+	// assemble element matrix elem_mat
+	for i = 0 .. n − 1
+		for j = 0 .. n − 1
+			elem_mat[i, j] += integral of ψ[s[k, i]] ψ[s[k, j]] over e[k]
+		end for
+	end for
+	
+	// scatter element matrix elem_mat to global matrix glob_mat
+	for i = 0 .. n − 1
+		for j = 0 .. n − 1
+			glob_mat[s[k, i], s[k, j]] += elem_mat[i, j]
+		end for
+	end for
+end for
+```
