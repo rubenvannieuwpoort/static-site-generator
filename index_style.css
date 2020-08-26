@@ -96,31 +96,11 @@ p { margin:0 0 1rem; }
 
 .post-title { margin-bottom: 0.25rem; }
 
-.post-date{
-	margin-bottom: 2rem;
-	font-size: 0.75rem;
-	text-transform: uppercase;
-}
-
 .list-post-title { margin-bottom: 0.25rem; }
 
 .list-post-title a { color:#333; }
 
 .list-post-title a:hover,.list-post-title a:focus { text-decoration:none; }
-
-.list-post-date {
-	margin-bottom: 1rem;
-	font-size: 0.75rem;
-	text-transform: uppercase;
-}
-
-.post-date {
-  float: right;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-  position: relative;
-}
 
 .post-title {
   font-size: 1.3rem;
