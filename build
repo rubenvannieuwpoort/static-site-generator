@@ -10,7 +10,7 @@ while read line; do
 	TITLE=$(echo "$line" | cut -f1)
 	FILENAME=$(echo "$line" | cut -f2)
 	scripts/format-blogpost.js "${TITLE}" posts/${FILENAME}.md > site/posts/${FILENAME}.html
-done < post_list
+done < posts/post_list
 
 cp -r post_files/* site/posts/
 for folder in $(find posts -mindepth 1 -maxdepth 1 -type d) ; do \

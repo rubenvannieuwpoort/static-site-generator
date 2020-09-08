@@ -42,7 +42,7 @@ while read line; do
 	echo '</div>'
 	echo "<p class=\"post-subtitle\">$DESCRIPTION</p>"
 	echo '<div class="clear"></div>'
-done < post_list
+done < posts/post_list
 
 
 # Fixed end of index HTML
