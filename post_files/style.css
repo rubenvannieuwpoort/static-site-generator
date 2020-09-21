@@ -31,8 +31,13 @@ blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 
-pre { font-size: 93%; margin-left: 35px; }
+pre { font-size: 93%; padding: 0.5em; background-color: rgba(0, 0, 0, 0.05); }
 code { font-size: 93%; }
+
+table { margin-left: auto; margin-right: auto; }
+td:last-child, th:last-child { border-right: 0; }
+th { border-bottom: 1px solid #dcdcdc; font-weight: bold; }
+th, td { border-right: 1px solid #dcdcdc; padding: 4px 12px; }
 
 body {
 	font: normal 16px/24px "Crimson", Georgia, serif;

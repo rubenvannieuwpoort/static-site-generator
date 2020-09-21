@@ -13,7 +13,7 @@ while read line; do
 done < posts/post_list
 
 cp -r post_files/* site/posts/
-for folder in $(find posts -mindepth 1 -maxdepth 1 -type d) ; do \
+for folder in $(find posts -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*') ; do \
 	cp -r "$folder" "site/$folder" ; \
 done
 
