@@ -97,7 +97,7 @@ function markdown_to_html(markdown_contents) {
 	return contents;
 }
 
-function main() {	
+function main() {
 	if (process.argv.length < 4) {
 		console.log('Usage: index.js title input.md > output.html');
 		process.exit(1);

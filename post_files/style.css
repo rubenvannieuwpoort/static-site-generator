@@ -1,28 +1,34 @@
 @font-face {
-  font-family: 'Crimson';
-  src: url("font/crimson-roman.woff") format("woff"); }
+	font-family: 'Crimson';
+	src: url("font/crimson-roman.woff") format("woff");
+}
 @font-face {
-  font-family: 'Crimson';
-  src: url("font/crimson-italic.woff") format("woff");
-  font-style: italic; }
+	font-family: 'Crimson';
+	src: url("font/crimson-italic.woff") format("woff");
+	font-style: italic;
+}
 @font-face {
-  font-family: 'Crimson';
-  src: url("font/crimson-semibold.woff") format("woff");
-  font-weight: 600; }
+	font-family: 'Crimson';
+	src: url("font/crimson-semibold.woff") format("woff");
+	font-weight: 600;
+}
 @font-face {
-  font-family: 'Crimson';
-  src: url("font/crimson-semibolditalic.woff") format("woff");
-  font-style: italic;
-  font-weight: 600; }
+	font-family: 'Crimson';
+	src: url("font/crimson-semibolditalic.woff") format("woff");
+	font-style: italic;
+	font-weight: 600;
+}
 @font-face {
-  font-family: 'Crimson';
-  src: url("font/crimson-bold.woff") format("woff");
-  font-weight: bold; }
+	font-family: 'Crimson';
+	src: url("font/crimson-bold.woff") format("woff");
+	font-weight: bold;
+}
 @font-face {
-  font-family: 'Crimson';
-  src: url("font/crimson-bolditalic.woff") format("woff");
-  font-style: italic;
-  font-weight: bold; }
+	font-family: 'Crimson';
+	src: url("font/crimson-bolditalic.woff") format("woff");
+	font-style: italic;
+	font-weight: bold;
+}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, a, abbr, acronym, address, big, cite, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, u, center, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
@@ -31,7 +37,7 @@ blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 
-pre { font-size: 93%; padding: 0.5em; background-color: rgba(0, 0, 0, 0.05); }
+pre { font-size: 93%; padding: 0.5em; background-color: rgba(0, 0, 0, 0.05); overflow: auto; }
 code { font-size: 93%; }
 
 table { margin-left: auto; margin-right: auto; }
@@ -44,11 +50,11 @@ body {
 }
 
 p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
 }
 
 img {
@@ -60,33 +66,33 @@ img {
 
 a {
 	color: #0c93e4;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 em {
-    font-style: italic;
+	font-style: italic;
 }
 
 strong {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 h1 {
 	font: 40px "Crimson", Georgia, serif;
 	text-align: center;
-    padding: 20px 0px;
+	padding: 20px 0px;
 }
 
 h2 {
 	font: 600 30px "Crimson", Georgia, serif;
-    margin: 69px 0 25px 0;
-    padding-bottom: 3px;
+	margin: 69px 0 25px 0;
+	padding-bottom: 3px;
 }
 
 h3 {
-    font: 600 20px "Crimson", Georgia, serif;
-    margin: 40px 0 0 0;
-    padding-bottom: 3px;
+	font: 600 20px "Crimson", Georgia, serif;
+	margin: 40px 0 0 0;
+	padding-bottom: 3px;
 }
 
 @media only screen {
@@ -95,19 +101,19 @@ h3 {
 	article {
 		margin: auto;
 		position: relative;
-		width: 715px;
-		padding: 50px;
+		max-width: 715px;
 	}
 }
 
-@media only screen and (min-width: 850px) {
+/* to display it like the pdf viewer in chrome or firefox */
+/*@media only screen and (min-width: 850px) {
 	body { background-color: #525659; }
 	
 	article {
 		background-color: #ffffff;
 		box-shadow: 1px 1px 3px 2px #333333;
 	}
-}
+}*/
 
 @page {
     margin: 25mm;

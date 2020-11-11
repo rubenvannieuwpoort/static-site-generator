@@ -3,12 +3,13 @@
 # Start of index HTML
 
 echo '<!DOCTYPE html>'
+echo '<meta content="width=device-width, initial-scale=1.0" name="viewport">'
 echo '<html lang="en">'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo "<title>Ruben’s blog</title>"
-echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2" as="font" type="font/woff2">'
-echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2" as="font" type="font/woff2">'
+echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2" as="font" type="font/woff2" crossorigin>'
+echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2" as="font" type="font/woff2" crossorigin>'
 echo '<link rel="shortcut icon" href="./favicon.png">'
 echo '<style>'
 cat index_style.css
@@ -38,7 +39,7 @@ while read line; do
 	NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
 	
 	echo '<div class="post-row">'
-	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}.html\">$TITLE</a></span>"
+	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}\">$TITLE</a></span>"
 	echo '</div>'
 	echo "<p class=\"post-subtitle\">$DESCRIPTION</p>"
 	echo '<div class="clear"></div>'
