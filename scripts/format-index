@@ -15,16 +15,17 @@ echo "<table>"
 while read line; do
 	FILENAME=$(echo "$line" | cut -f2)
 	TITLE=$(echo "$line" | cut -f1)
-	DATE=$(echo "$line" | cut -f3)
-	DESCRIPTION=$(echo "$line" | cut -f4)
-	NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
+	DESCRIPTION=$(echo "$line" | cut -f3)
+	# This can be used to parse a date in YYYY-MM-DD format
+	#DATE=$(echo "$line" | cut -f4)
+	#NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
 	
 	echo "<tr>"
 	echo "<td><a href=\"posts/${FILENAME}.html\">$TITLE</a></td>"
 	echo "<td>$NICEDATE</td>"
 	echo "<td>$DESCRIPTION</td>"
 	echo "</tr>"
-done < post_list
+done < posts/post_list
 
 
 # Fixed end of index HTML

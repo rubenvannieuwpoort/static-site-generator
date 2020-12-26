@@ -75,6 +75,7 @@ function markdown_to_html(markdown_contents) {
 	// Replace math environments by some Chinese character. This is a
 	// hack; it'd be better to use remark which probably has support for
 	// using katex as well... But I can't be bothered right now.
+	markdown_contents = markdown_contents.replace(/\\\$/g, '二');
 	[ display_math, markdown_contents ] =
 		markdown_contents.gather(display_math_regex, '〸');
 	[ inline_math, markdown_contents ] =
@@ -91,6 +92,7 @@ function markdown_to_html(markdown_contents) {
 		.use(format).use(html).processSync(markdown_contents).contents;
 	
 	// Put the rendered math environments back in the rest of the HTML.
+	contents = contents.replace(/二/g, '$');
 	contents = contents.replaceMany('〸', display_math);
 	contents = contents.replaceMany('〹', inline_math);
 	
