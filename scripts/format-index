@@ -36,7 +36,9 @@ while read line; do
 	TITLE=$(echo "$line" | cut -f1)
 	FILENAME=$(echo "$line" | cut -f2)
 	DESCRIPTION=$(echo "$line" | cut -f3)
-	NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
+	# This can be used to parse a date in YYYY-MM-DD format
+	#DATE=$(echo "$line" | cut -f4)
+	#NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
 	
 	echo '<div class="post-row">'
 	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}\">$TITLE</a></span>"
