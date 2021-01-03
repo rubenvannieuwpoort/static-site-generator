@@ -26,7 +26,7 @@ Make sure you have node and npm installed, then run:
 
 	git clone https://github.com/rubenvannieuwpoort/static-site-generator
 	cd static-site-generator
-	npm install
+	npm install unified remark-parse remark-rehype rehype-document rehype-format rehype-stringify vfile-reporter katex
 	./build
 
 
