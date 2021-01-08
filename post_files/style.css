@@ -105,6 +105,8 @@ h3 {
 	}
 }
 
+@media print { .pagebreak { page-break-before: always; } }
+
 /* to display it like the pdf viewer in chrome or firefox */
 /*@media only screen and (min-width: 850px) {
 	body { background-color: #525659; }
