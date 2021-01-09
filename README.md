@@ -17,7 +17,7 @@ Folder structure:
   - site (only exists after building): folder that holds your static site when it is generated
   - build: the build script you have to execute to generate your site in the site folder
 
-This static site generator is meant to suit my needs. It is almost certainly not suitable for your needs out-of-the-box. The idea is that it is relatively lightweight and easy to adapt to your needs. It does not work with plugins or themes. It is able to render math in (LaTeX)[https://en.wikipedia.org/wiki/LaTeX], when it is delimited with dollar signs (for inline math) or double dollar signs (for math in 'display mode'). It outputs pure HTML and CSS and doesn't output any javascript.
+This static site generator is meant to suit my needs. It is almost certainly not suitable for your needs out-of-the-box. The idea is that it is relatively lightweight and easy to adapt to your needs. It does not work with plugins or themes. It is able to render math in [LaTeX](https://en.wikipedia.org/wiki/LaTeX), when it is delimited with dollar signs (for inline math) or double dollar signs (for math in 'display mode'). It outputs pure HTML and CSS and doesn't output any javascript.
 
 
 ## Example
@@ -26,7 +26,7 @@ Make sure you have node and npm installed, then run:
 
 	git clone https://github.com/rubenvannieuwpoort/static-site-generator
 	cd static-site-generator
-	npm install unified remark-parse remark-rehype rehype-document rehype-format rehype-stringify vfile-reporter katex
+	npm install
 	./build
 
 
