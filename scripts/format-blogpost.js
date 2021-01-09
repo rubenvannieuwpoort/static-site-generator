@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-var unified = require('unified');
-var markdown = require('remark-parse');
-var remark2rehype = require('remark-rehype');
-var doc = require('rehype-document');
-var format = require('rehype-format');
-var html = require('rehype-stringify');
-var report = require('vfile-reporter');
-var katex = require('katex');
-var fs = require('fs');
+const unified = require('unified');
+const markdown = require('remark-parse');
+const remark2rehype = require('remark-rehype');
+const doc = require('rehype-document');
+const format = require('rehype-format');
+const html = require('rehype-stringify');
+const raw = require('rehype-raw');
+const report = require('vfile-reporter');
+const katex = require('katex');
+const fs = require('fs');
 
 String.prototype.gather = gather;
 String.prototype.replaceMany = replaceMany;
@@ -88,7 +89,7 @@ function markdown_to_html(markdown_contents) {
 		x => katex.renderToString(x, { displayMode: false, output: 'html' }));
 	
 	// Summon the all-mighty remark to do our work.
-	contents = unified().use(markdown).use(remark2rehype)
+	contents = unified().use(markdown).use(remark2rehype, { allowDangerousHtml: true }).use(raw)
 		.use(format).use(html).processSync(markdown_contents).contents;
 	
 	// Put the rendered math environments back in the rest of the HTML.
@@ -99,7 +100,7 @@ function markdown_to_html(markdown_contents) {
 	return contents;
 }
 
-function main() {	
+function main() {
 	if (process.argv.length < 4) {
 		console.log('Usage: index.js title input.md > output.html');
 		process.exit(1);
