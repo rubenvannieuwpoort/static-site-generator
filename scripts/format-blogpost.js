@@ -7,6 +7,7 @@ const doc = require('rehype-document');
 const format = require('rehype-format');
 const html = require('rehype-stringify');
 const raw = require('rehype-raw');
+const breaks = require('remark-breaks');
 const report = require('vfile-reporter');
 const katex = require('katex');
 const fs = require('fs');
@@ -89,8 +90,8 @@ function markdown_to_html(markdown_contents) {
 		x => katex.renderToString(x, { displayMode: false, output: 'html' }));
 	
 	// Summon the all-mighty remark to do our work.
-	contents = unified().use(markdown).use(remark2rehype, { allowDangerousHtml: true }).use(raw)
-		.use(format).use(html).processSync(markdown_contents).contents;
+	contents = unified().use(markdown).use(breaks).use(remark2rehype, { allowDangerousHtml: true })
+		.use(raw).use(format).use(html).processSync(markdown_contents).contents;
 	
 	// Put the rendered math environments back in the rest of the HTML.
 	contents = contents.replace(/二/g, '$');

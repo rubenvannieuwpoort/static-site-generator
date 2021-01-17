@@ -105,7 +105,10 @@ h3 {
 	}
 }
 
-@media print { .pagebreak { page-break-before: always; } }
+@media print {
+	h1, h2, h3, h4 { page-break-after: avoid; }
+	pre { overflow: visible; }
+}
 
 /* to display it like the pdf viewer in chrome or firefox */
 /*@media only screen and (min-width: 850px) {
