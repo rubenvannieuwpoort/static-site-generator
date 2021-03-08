@@ -1,42 +1,19 @@
 #!/usr/bin/env node
 
-const unified = require('unified');
-const markdown = require('remark-parse');
-const remark2rehype = require('remark-rehype');
-const doc = require('rehype-document');
-const format = require('rehype-format');
-const html = require('rehype-stringify');
-const raw = require('rehype-raw');
-const report = require('vfile-reporter');
-const katex = require('katex');
 const fs = require('fs');
-
-String.prototype.gather = gather;
-String.prototype.replaceMany = replaceMany;
+const mk = require('markdown-it-katexx');
+const markdown = require('markdown-it')(
+	{
+		html: true,
+		breaks: true,
+		typographer: true,
+		quotes: '“”‘’',
+		imgsize: true,
+		table: true
+	}
+).use(mk, { output: 'html', throwOnError: true });
 
 main();
-
-
-// Replace everything that matches a regex with a replacement,
-// and return the list of strings that matched the regex.
-function gather(regex, replacement) {
-	text = String(this);
-	matches = [ ];
-	while ((match = regex.exec(text)) !== null) {
-		text = text.substring(0, match.index) + replacement + text.substring(match.index + match[0].length);
-		matches.push(match.slice(1).filter(x => x != undefined)[0]);
-	}
-	return [ matches, text ];
-};
-
-// Replace the (n + 1)th occurence of a string by replacements[n],
-// for all occurences of the string.
-function replaceMany(character, replacements) {
-	text = this;
-	while (replacements.length > 0)
-		text = text.replace(character, replacements.shift());
-	return text;
-}
 
 // Wraps stylesheet URI with the proper HTML.
 function stylesheet_code(href) {
@@ -68,38 +45,6 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 		+ '</body>\n</html>';
 }
 
-// Generate HTML from markdown.
-function markdown_to_html(markdown_contents) {
-	display_math_regex = /\$\$(.*?)\$\$|\\\[(.*?)\\\]/;
-	inline_math_regex = /\$(.*?)\$|\\\((.*?)\\\)/;
-	
-	// Replace math environments by some Chinese character. This is a
-	// hack; it'd be better to use remark which probably has support for
-	// using katex as well... But I can't be bothered right now.
-	markdown_contents = markdown_contents.replace(/\\\$/g, '二');
-	[ display_math, markdown_contents ] =
-		markdown_contents.gather(display_math_regex, '〸');
-	[ inline_math, markdown_contents ] =
-		markdown_contents.gather(inline_math_regex, '〹');
-	
-	// Use KaTeX to render the math to HTML.
-	display_math = display_math.map(
-		x => katex.renderToString(x, { displayMode: true, output: 'html' }));
-	inline_math = inline_math.map(
-		x => katex.renderToString(x, { displayMode: false, output: 'html' }));
-	
-	// Summon the all-mighty remark to do our work.
-	contents = unified().use(markdown).use(remark2rehype, { allowDangerousHtml: true }).use(raw)
-		.use(format).use(html).processSync(markdown_contents).contents;
-	
-	// Put the rendered math environments back in the rest of the HTML.
-	contents = contents.replace(/二/g, '$');
-	contents = contents.replaceMany('〸', display_math);
-	contents = contents.replaceMany('〹', inline_math);
-	
-	return contents;
-}
-
 function main() {
 	if (process.argv.length < 4) {
 		console.log('Usage: index.js title input.md > output.html');
@@ -120,7 +65,7 @@ function main() {
 	}
 	
 	title = process.argv[2];
-	html_contents = '<article>' + markdown_to_html(markdown_contents) + '</article>';
+	html_contents = '<article>' + markdown.render(markdown_contents) + '</article>';
 	
 	document = html_document(title, html_contents,  '../favicon.png',
 		[ 'style.css', 'katex.min.css' ]);
