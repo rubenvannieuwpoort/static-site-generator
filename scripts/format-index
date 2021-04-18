@@ -2,34 +2,55 @@
 
 # Start of index HTML
 
-echo "<html>"
-echo "<head>"
-echo "<title>Example blog</title>"
-echo "<link rel=\"stylesheet\" href=\"./style.css\">"
+echo '<!DOCTYPE html>'
+echo '<meta content="width=device-width, initial-scale=1.0" name="viewport">'
+echo '<html lang="en">'
+echo '<head>'
+echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
+echo "<title>Ruben’s blog</title>"
+echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2" as="font" type="font/woff2" crossorigin>'
+echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2" as="font" type="font/woff2" crossorigin>'
+echo '<link rel="shortcut icon" href="./favicon.png">'
+echo '<style>'
+cat index_style.css
+echo '</style>'
 echo '</head>'
-echo "<body>"
-echo "<table>"
+echo '<body>'
+echo '<div id="blog" class="wrap">'
+echo '<div id="posts" class="section">'
+echo '<body>'
+echo '<div class="container">'
+echo '<header class="masthead">'
+echo '<h1 class="masthead-title\">'
+echo 'Ruben’s blog</span>'
+echo '</h1>'
+echo '<nav class="masthead-nav">'
+echo '</nav>'
+echo '</header>'
+echo '<div class="content list">'
+
 
 # Generated HTML to link to blog posts
 
 while read line; do
-	FILENAME=$(echo "$line" | cut -f2)
 	TITLE=$(echo "$line" | cut -f1)
+	FILENAME=$(echo "$line" | cut -f2)
 	DESCRIPTION=$(echo "$line" | cut -f3)
 	# This can be used to parse a date in YYYY-MM-DD format
 	#DATE=$(echo "$line" | cut -f4)
 	#NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
 	
-	echo "<tr>"
-	echo "<td><a href=\"posts/${FILENAME}.html\">$TITLE</a></td>"
-	echo "<td>$NICEDATE</td>"
-	echo "<td>$DESCRIPTION</td>"
-	echo "</tr>"
+	echo '<div class="post-row">'
+	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}\">$TITLE</a></span>"
+	echo '</div>'
+	echo "<p class=\"post-subtitle\">$DESCRIPTION</p>"
+	echo '<div class="clear"></div>'
 done < posts/post_list
 
 
 # Fixed end of index HTML
 
-echo "</table>"
-echo "</body>"
-echo "</html>"
+echo '</div>'
+echo '</div>'
+echo '</body>'
+echo '</html>'
