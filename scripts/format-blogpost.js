@@ -33,7 +33,7 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 		favicon_type = { 'ico': 'image/x-icon', 'gif': 'image/gif', 'png': 'image/png' }[favicon.substring(favicon.length - 3)];
 	}
 	
-	return '<html>\n<head>\n'
+	return '<!DOCTYPE html>\n<html>\n<head>\n'
 		+ '<meta charset="utf-8">\n'
 		+ '<title>' + title + '</title>\n'
 		+ '<meta name="viewport" content="width=device-width">\n'
