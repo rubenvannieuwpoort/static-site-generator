@@ -16,4 +16,4 @@ for folder in $(find posts -mindepth 1 -maxdepth 1 -type d) ; do \
 done
 
 cp -r index_files/* site/
-scripts/format-index > site/index.html
+scripts/format-index $1 > site/index.html

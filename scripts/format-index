@@ -40,6 +40,10 @@ while read line; do
 	#DATE=$(echo "$line" | cut -f4)
 	#NICEDATE=$(date --date="$DATE" +"%B %-d, %Y")
 	
+	if [ "$1" == "dev" ]; then
+		FILENAME=${FILENAME}".html"
+	fi
+	
 	echo '<div class="post-row">'
 	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}\">$TITLE</a></span>"
 	echo '</div>'
