@@ -22,7 +22,7 @@ function stylesheet_code(href) {
 
 // Wraps script URI with the proper HTML.
 function script_code(href) {
-	return '<script src="' + href + '"></script>';
+	return '<script type="text/javascript" src="' + href + '"></script>';
 }
 
 // Generate HTML given a title, body, stylesheet paths, and script paths.
