@@ -105,6 +105,10 @@ h3 {
 	}
 }
 
+@media only screen and (max-width: 800px) {
+	.katex-display { overflow: auto hidden; }
+}
+
 @media print {
 	h1, h2, h3, h4 { page-break-after: avoid; }
 	pre { overflow: visible; }
