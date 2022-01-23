@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+set -e
+
+declare -a filenames
+declare -a titles
+
+postlist_timestamp="0"
+
+while true
+do
+	rebuild=false
+	if [[ ! -d site/posts ]]
+	then
+		echo -n "site/posts not found, "
+		rebuild=true
+	else
+		# refresh list of filenames if outdated
+		last_modified=$(stat -c '%Y' posts/post_list)
+		if (( last_modified > postlist_timestamp ))
+		then
+			echo -n "post_list updated, "
+			rebuild=true
+		fi
+
+	if [ "${rebuild}" = true ]; then
+		echo -n "deleting and rebuilding site... "
+		rm -rf site
+		postlist_timestamp=$(stat -c '%Y' posts/post_list)
+		./build dev
+		filenames=()
+		titles=()
+		while read line; do
+			filename=$(echo "$line" | cut -f2)
+			title=$(echo "$line" | cut -f1)
+			filenames+=("${filename}")
+			titles+=("${title}")
+		done < posts/post_list
+		echo "done!"
+	fi
+		# check if files are outdated and rebuild if so
+		for i in "${!filenames[@]}"
+		do
+			filename="${filenames[i]}"
+			rebuild=false
+			if [[ ! -f site/posts/${filename}.html ]]
+			then
+				echo -n "site/posts/${filename}.html not found, "
+				rebuild=true
+			else
+				post_timestamp=$(stat -c '%Y' posts/${filename}.md)
+				html_timestamp=$(stat -c '%Y' site/posts/${filename}.html)
+				if (( post_timestamp > html_timestamp ))
+				then
+					echo -n "site/posts/${filename}.html is outdated, "
+					rebuild=true
+				fi
+			fi
+			
+			if [ "$rebuild" = true ]; then
+				echo -n "rebuilding... "
+				title="${titles[i]}"
+				scripts/format-blogpost.js "${title}" posts/${filename}.md > site/posts/${filename}.html
+				echo "done!"
+			fi
+		done
+	fi
+	
+	sleep 1
+done
