@@ -4,7 +4,7 @@
   "description": "This static site generator is designed to render markdown with LaTex to static HTML pages with as little fuzz as possible. I used it to make [rubenvannieuwpoort.nl](https://rubenvannieuwpoort.nl). It is explicitly designed to fit my needs, so it will not have support for many features.",
   "main": "index.js",
   "dependencies": {
-    "markdown-it": "^12.0.6",
+    "markdown-it": "^12.3.2",
     "markdown-it-katexx": "^3.2.0"
   },
   "devDependencies": {},
