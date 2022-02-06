@@ -24,8 +24,6 @@ echo '<header class="masthead">'
 echo '<h1 class="masthead-title\">'
 echo 'Ruben’s blog</span>'
 echo '</h1>'
-echo '<nav class="masthead-nav">'
-echo '</nav>'
 echo '</header>'
 echo '<div class="content list">'
 
