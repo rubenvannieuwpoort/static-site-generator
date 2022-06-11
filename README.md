@@ -24,10 +24,12 @@ This static site generator is meant to suit my needs. It is almost certainly not
 
 Make sure you have node and npm installed, then run:
 
-	git clone https://github.com/rubenvannieuwpoort/static-site-generator
+	git clone https://github.com/rubenvannieuwpoort/static-site-generator --recursive
 	cd static-site-generator
 	npm install
 	./build
+
+If you want to build the site in a way that you can open it locally with the links still working, use `./build dev` instead of `./build`. This makes sure the links in the index include the `.html` suffix so that they link to local files.
 
 
 ## Configuration
