@@ -29,6 +29,8 @@ Make sure you have node and npm installed, then run:
 	npm install
 	./build
 
+Now, a `site` directory should have been created, which contains the generated site.
+
 If you want to build the site in a way that you can open it locally with the links still working, use `./build dev` instead of `./build`. This makes sure the links in the index include the `.html` suffix so that they link to local files.
 
 
