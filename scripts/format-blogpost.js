@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const mk = require('markdown-it-katexx');
+const mk = require('@traptitech/markdown-it-katex');
 const markdown = require('markdown-it')(
 	{
 		html: true,

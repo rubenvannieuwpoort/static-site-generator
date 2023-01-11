@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "markdown-it": "^12.3.2",
-    "markdown-it-katexx": "^3.2.0"
+    "@traptitech/markdown-it-katex": "^3.6.0"
   },
   "devDependencies": {},
   "scripts": {
