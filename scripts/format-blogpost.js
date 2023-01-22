@@ -40,11 +40,6 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 		+ '<title>' + title + '</title>\n'
 		+ '<meta name="viewport" content="width=device-width">\n'
 		+ stylesheets.map(stylesheet_code).join(' ') + '\n'
-		+ '<link rel="preload" href="/font/crimson-bold.woff" as="font" type="font/woff">\n'
-		+ '<link rel="preload" href="/font/crimson-bolditalic.woff" as="font" type="font/woff">\n'
-		+ '<link rel="preload" href="/font/crimson-italic.woff" as="font" type="font/woff">\n'
-		+ '<link rel="preload" href="/font/crimson-roman.woff" as="font" type="font/woff">\n'
-		+ '<link rel="preload" href="/font/crimson-semibold.woff" as="font" type="font/woff">\n'
 		+ scripts.map(script_code).join(' ') + '\n'
 		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">\n' : '')
 		+ '</head>\n<body>' + '\n'
