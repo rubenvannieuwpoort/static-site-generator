@@ -36,17 +36,17 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 	}
 	
 	return '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
-		+ '<link rel="preload" href="/font/crimson-bold.woff2" as="font" type="font/woff2" crossorigin>\n'
-		+ '<link rel="preload" href="/font/crimson-bolditalic.woff2" as="font" type="font/woff2" crossorigin>\n'
-		+ '<link rel="preload" href="/font/crimson-italic.woff2" as="font" type="font/woff2" crossorigin>\n'
-		+ '<link rel="preload" href="/font/crimson-roman.woff2" as="font" type="font/woff2" crossorigin>\n'
-		+ '<link rel="preload" href="/font/crimson-semibold.woff2" as="font" type="font/woff2" crossorigin>\n'
 		+ '<meta charset="utf-8">\n'
 		+ '<title>' + title + '</title>\n'
 		+ '<meta name="viewport" content="width=device-width">\n'
 		+ stylesheets.map(stylesheet_code).join(' ') + '\n'
+		+ '<link rel="preload" href="/font/crimson-bold.woff" as="font" type="font/woff">\n'
+		+ '<link rel="preload" href="/font/crimson-bolditalic.woff" as="font" type="font/woff">\n'
+		+ '<link rel="preload" href="/font/crimson-italic.woff" as="font" type="font/woff">\n'
+		+ '<link rel="preload" href="/font/crimson-roman.woff" as="font" type="font/woff">\n'
+		+ '<link rel="preload" href="/font/crimson-semibold.woff" as="font" type="font/woff">\n'
 		+ scripts.map(script_code).join(' ') + '\n'
-		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">' : '') + '\n'
+		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">\n' : '')
 		+ '</head>\n<body>' + '\n'
 		+ body + '\n'
 		+ '</body>\n</html>';
