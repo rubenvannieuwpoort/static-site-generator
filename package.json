@@ -5,9 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "markdown-it": "^12.3.2",
+    "markdown-it-imsize": "^2.0.1",
     "markdown-it-katexx": "^3.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const mk = require('markdown-it-katexx');
+const is = require('markdown-it-imsize');
 const markdown = require('markdown-it')(
 	{
 		html: true,
@@ -11,7 +12,8 @@ const markdown = require('markdown-it')(
 		imgsize: true,
 		table: true
 	}
-).use(mk, { output: 'html', throwOnError: true });
+).use(mk, { output: 'html', throwOnError: true })
+ .use(is);
 
 main();
 
@@ -33,7 +35,12 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 		favicon_type = { 'ico': 'image/x-icon', 'gif': 'image/gif', 'png': 'image/png' }[favicon.substring(favicon.length - 3)];
 	}
 	
-	return '<!DOCTYPE html>\n<html>\n<head>\n'
+	return '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+		+ '<link rel="preload" href="/font/crimson-bold.woff2" as="font" type="font/woff2" crossorigin>\n'
+		+ '<link rel="preload" href="/font/crimson-bolditalic.woff2" as="font" type="font/woff2" crossorigin>\n'
+		+ '<link rel="preload" href="/font/crimson-italic.woff2" as="font" type="font/woff2" crossorigin>\n'
+		+ '<link rel="preload" href="/font/crimson-roman.woff2" as="font" type="font/woff2" crossorigin>\n'
+		+ '<link rel="preload" href="/font/crimson-semibold.woff2" as="font" type="font/woff2" crossorigin>\n'
 		+ '<meta charset="utf-8">\n'
 		+ '<title>' + title + '</title>\n'
 		+ '<meta name="viewport" content="width=device-width">\n'

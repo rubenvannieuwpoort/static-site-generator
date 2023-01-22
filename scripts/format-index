@@ -45,7 +45,7 @@ while read line; do
 	echo '<div class="post-row">'
 	echo "<span class=\"post-title\"><a href=\"posts/${FILENAME}\">$TITLE</a></span>"
 	echo '</div>'
-	echo "<p class=\"post-subtitle\">$DESCRIPTION</p>"
+	# echo "<p class=\"post-subtitle\">$DESCRIPTION</p>"
 	echo '<div class="clear"></div>'
 done < posts/post_list
 
