@@ -28,7 +28,7 @@ function script_code(href) {
 }
 
 // Generate HTML given a title, body, stylesheet paths, and script paths.
-function html_document(title, body, favicon, stylesheets, scripts) {
+function html_document(title, description, body, favicon, stylesheets, scripts) {
 	if (stylesheets === undefined) stylesheets = [];
 	if (scripts === undefined) scripts = [];
 	if (favicon !== undefined) {
@@ -37,6 +37,7 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 	
 	return '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
 		+ '<meta charset="utf-8">\n'
+		+ '<meta name="description" content="' + description + '">\n'
 		+ '<title>' + title + '</title>\n'
 		+ '<meta name="viewport" content="width=device-width">\n'
 		+ stylesheets.map(stylesheet_code).join(' ') + '\n'
@@ -48,8 +49,8 @@ function html_document(title, body, favicon, stylesheets, scripts) {
 }
 
 function main() {
-	if (process.argv.length < 4) {
-		console.log('Usage: index.js title input.md > output.html');
+	if (process.argv.length < 5) {
+		console.log('Usage: index.js title input.md description > output.html');
 		process.exit(1);
 	}
 	
@@ -67,9 +68,10 @@ function main() {
 	}
 	
 	title = process.argv[2];
+	description = process.argv[4];
 	html_contents = '<article>' + markdown.render(markdown_contents) + '</article>';
 	
-	document = html_document(title, html_contents,  '../favicon.png',
+	document = html_document(title, description, html_contents,  '../favicon.png',
 		[ 'style.css', 'katex.min.css' ]);
 	
 	console.log(document);
