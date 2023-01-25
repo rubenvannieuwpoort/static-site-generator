@@ -8,6 +8,7 @@ while read line; do
 	TITLE=$(echo "$line" | cut -f1)
 	FILENAME=$(echo "$line" | cut -f2)
 	DESCRIPTION=$(echo "$line" | cut -f3)
+	echo $FILENAME
 	scripts/format-blogpost.js "${TITLE}" posts/${FILENAME}.md "$DESCRIPTION" > site/posts/${FILENAME}.html
 done < posts/post_list
 
