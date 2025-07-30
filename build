@@ -19,3 +19,4 @@ done
 
 cp -r index_files/* site/
 scripts/format-index $1 > site/index.html
+scripts/generate-rss $1 > site/rss.xml
