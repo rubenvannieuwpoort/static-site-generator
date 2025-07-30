@@ -1,0 +1,26 @@
+#! /usr/bin/env bash
+#
+awk -F'\t' '
+BEGIN{
+	printf "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
+	printf "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
+	printf "<channel>\n"
+	printf "<title>Ruben van Nieuwpoorts personal site</title>\n"
+	printf "<link>https://rubenvannieuwpoort.nl</link>\n"
+	printf "<description>Ruben van Nieuwpoorts personal site.</description>\n"
+	printf "<atom:link href=\"https://rubenvannieuwpoort.nl/rss.xml\" rel=\"self\" type=\"application/rss+xml\" />\n"
+}
+
+{
+	printf "<item>\n"
+	printf "<title>%s</title>\n", $1
+	printf "<link>https://rubenvannieuwpoort.nl/posts/%s</link>\n", $2
+	printf "<guid>https://rubenvannieuwpoort.nl/posts/%s</guid>\n", $2
+	printf "<description>%s</description>\n", $3
+	printf "</item>\n"
+}  
+END{
+	printf "</channel>\n"
+	printf "</rss>\n"
+
+}'	posts/post_list

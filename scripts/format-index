@@ -11,6 +11,7 @@ echo '<meta name="description" content="Ruben van Nieuwpoorts personal site.">'
 echo "<title>Ruben’s blog</title>"
 echo '<link rel="preload" href="fonts/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2" as="font" type="font/woff2" crossorigin>'
 echo '<link rel="shortcut icon" href="./favicon.png">'
+echo '<link rel="alternate" type="application/rss+xml" title="RSS feed" href="https://rubenvannieuwpoort.nl/rss.xml" />'
 echo '<style>'
 cat index_style.css
 echo '</style>'

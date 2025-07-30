@@ -43,6 +43,7 @@ function html_document(title, description, body, favicon, stylesheets, scripts) 
 		+ stylesheets.map(stylesheet_code).join(' ') + '\n'
 		+ scripts.map(script_code).join(' ') + '\n'
 		+ (favicon !== undefined ? '<link rel="shortcut icon" type="' + favicon_type + '" href="' + favicon + '">\n' : '')
+	    + '<link rel="alternate" type="application/rss+xml" title="RSS feed" href="https://rubenvannieuwpoort.nl/rss.xml" />\n'
 		+ '</head>\n<body>' + '\n'
 		+ body + '\n'
 		+ '</body>\n</html>';
